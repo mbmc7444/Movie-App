@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./Movie.css";
 import "../Reset.css";
 
-function Movie({ id, year, title, summary, poster, genres }) {
+function Movie({ id, year, title, summary, poster, genres, rating, largeImage }) {
     return (
         <Link to={{
             pathname:`/movie/${id}`,
@@ -13,7 +13,10 @@ function Movie({ id, year, title, summary, poster, genres }) {
                 title,
                 summary,
                 poster,
-                genres
+                genres,
+                rating,
+                largeImage,
+
             }
         }}>
             <div className="movie">
@@ -27,7 +30,7 @@ function Movie({ id, year, title, summary, poster, genres }) {
                     </h5>
                     <ul className="movie-genres">{genres.map((genre, index) => (<li key={index} className="genres_genre">{genre}</li>))}</ul>
                     <p className="movie-summary">
-                        {summary.slice(0, 180)}
+                        {summary.slice(0, 100)}
                         ...
                     </p>
                 </div>
@@ -41,10 +44,12 @@ function Movie({ id, year, title, summary, poster, genres }) {
 Movie.propTypes = {
     id: PropTypes.number.isRequired,
     year: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string).isRequired
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+
 };
 
 export default Movie;

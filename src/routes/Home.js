@@ -29,9 +29,11 @@ class Home extends React.Component {
             <div className="movies">
               {
                 movies.map(movie => {
+                    console.log(movie)
                   return <Movie
                     key={movie.id}
-                    id={movie.id} year={movie.year} title={movie.title} summary={movie.summary} poster={movie.medium_cover_image} genres={movie.genres} />
+                    id={movie.id} year={movie.year} title={movie.title} summary={movie.summary} poster={movie.medium_cover_image} genres={movie.genres} rating={movie.rating} largeImage={movie.large_cover_image
+                    }/>
                 })
               }
             </div>
