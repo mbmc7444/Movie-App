@@ -4,16 +4,19 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Detail from "./routes/Detail";
 import Navigation from "./components/Navigation";
+import GlobalStyles from "./components/GlobalStyle";
 import "./App.css"
 
 function App(){
-  return ( 
+  return ( <>
+ <GlobalStyles />
   <HashRouter>
     <Navigation />
       <Route path ="/" exact={true} component={Home} />
      <Route path="/about" component={About} /> 
      <Route path="/movie/:id" component={Detail} /> 
   </HashRouter>
+  </>
   );
 }
 
