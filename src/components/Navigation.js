@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, withRouter } from "react-router-dom"
-import "./Components.css";
 import styled from "styled-components";
 
 const Nav = styled.div`
@@ -46,7 +45,6 @@ display: block
 
 class Navigation extends React.Component {
     render() {
-        { console.log(this.props.location.pathname) }
         return (
             <Nav >
                 <Container>

@@ -1,13 +1,39 @@
 import React from "react";
 import axios from "axios";
 import Movie from "../components/Movie";
+import Loading from "../components/Loading";
+import styled from "styled-components";
 
-import "./Routes.css";
-import "../Reset.css";
+
 const imgUrl = "https://image.tmdb.org/t/p/w500"
 const backUrl = "https://image.tmdb.org/t/p/original"
 
 
+const Movies = styled.div`
+width: 100%;
+display: grid;
+grid-template-columns: repeat(auto-fill, 23.5%);
+grid-column-gap: 2%;
+margin-top: calc(68px + 2%);
+
+@media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, 49%);
+    padding: 0 2% 0 2% ;
+
+  }
+  @media only screen and (max-width: 375px) {
+      grid-template-columns: repeat(auto-fill, 100%);
+      grid-column-gap: 4%;
+      margin-top: calc(68px + 4%);
+      padding: 0 4% 0 4% ;
+  }
+}
+`;
+
+const Container = styled.div`
+max-width: 1080px;
+margin: 0 auto;
+`;
 
 class Home extends React.Component {
   state = {
@@ -31,13 +57,9 @@ class Home extends React.Component {
     const { isLoading, movies } = this.state;
     return (
       <>
-        <section className="container">
-          {isLoading ? <div className="loader">
-            <span className="loader_text">
-              ...loading
-            </span>
-          </div> : (
-            <div className="movies">
+        <Container>
+          {isLoading ? <Loading /> : (
+            <Movies>
               {
                 movies.map(movie => {
                   return <Movie
@@ -46,9 +68,9 @@ class Home extends React.Component {
                   />
                 })
               }
-            </div>
+            </Movies>
           )}
-        </section>
+        </Container>
       </>
 
     )

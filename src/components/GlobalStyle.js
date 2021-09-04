@@ -9,10 +9,24 @@ const globalStyles = createGlobalStyle`
     }
     *{
         box-sizing:border-box;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 12px;
+        color: #e5e5e5;
+        width: 100%;
+        margin: 0;
     }
-    body{
-
-    }
+    body {
+        -ms-overflow-style: none;
+        background-color: rgba(20, 20, 20, 1);
+        width:100%;
+        height: 100vh;
+      }
+      
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      
 `;
 
 export default globalStyles;

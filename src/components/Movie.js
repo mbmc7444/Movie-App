@@ -1,21 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import "./Components.css";
-import "../Reset.css";
+import styled  from "styled-components";
+
 
 const MovieList = styled.div`
 width: 100%;
-padding: 1vw;
 font-weight: 300;
-display: 'flex'
+display: flex;
 flex-direction: column;
+}
+
+
 `;
 const MovieData = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-top:1vw;
+    margin:2vw 0;
+    @media only screen and (max-width: 600px) {
+        margin:3vw 0;
+      }
+    @media only screen and (max-width: 375px) {
+        margin:8vw 0;
+      }
 `;
 const Title = styled.h3`
 font-size: 1vw;
@@ -23,19 +29,40 @@ color: #2c2c2c;
 font-family: 'Noto Sans KR', sans-serif;
 font-weight: 500;
 margin: 0;
-color: #f3f3f3
+color: #f3f3f3;
+line-height:1;
+@media only screen and (max-width: 600px) {
+    font-size: 2.5vw;
+
+  }
+  @media only screen and (max-width: 375px) {
+    font-size: 5vw;
+  }
 `;
 const Year = styled.h4`
 margin: 0;
 font-size:0.875vw; 
 font-weight: 500;
-margin-top:0.25vw ;
 color:#999;
+flex: 20%;
+text-align:right;
+@media only screen and (max-width: 375px) {
+    line-height: 5vw;
+    font-size:14px;
+  }
+  
 `;
 const Img = styled.img`
-object-fit: cover;
-max-height: 350px;
 width: 100%;
+height:350px;
+box-shadow: 0px 1px 5px 2px rgb(0 0 0 / 80%);
+
+@media only screen and (max-width: 600px) {
+    height:400px;
+  }
+@media only screen and (max-width: 375px) {
+height: 500px;
+  }
 `;
 
 
@@ -73,17 +100,6 @@ function Movie({ id, year, title, poster, genres, rating, backImage, overview })
 }
 
 
-// map key 를 넣는걸 잊지말자
 
-// Movie.propTypes = {
-//     id: PropTypes.number.isRequired,
-//     year: PropTypes.number.isRequired,
-//     rating: PropTypes.number.isRequired,
-//     title: PropTypes.string.isRequired,
-//     summary: PropTypes.string.isRequired,
-//     poster: PropTypes.string.isRequired,
-//     genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-
-// };
 
 export default Movie;
